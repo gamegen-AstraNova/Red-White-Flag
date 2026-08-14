@@ -29,11 +29,13 @@
   function installTouchKonamiPad(feedKey) {
     const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
     const media = window.matchMedia('(max-width: 900px), (pointer: coarse)');
-    let timer = 0, pointer = -1, startX = 0, startY = 0, consumed = false;
+    let timer = 0, pointer = -1, startX = 0, startY = 0;
+    const listenerOptions = { capture: true, passive: false };
+    const isActivationCorner = event => media.matches && event.clientX <= 72 && event.clientY <= 72;
+    const blockNativeGesture = event => { if (event.cancelable) event.preventDefault(); event.stopPropagation(); };
     const cancel = () => { window.clearTimeout(timer); timer = 0; };
     const open = () => {
       if (!media.matches || document.querySelector('.touch-konami-pad')) return;
-      consumed = true;
       let progress = 0;
       const overlay = document.createElement('div');
       overlay.className = 'touch-konami-pad';
@@ -52,12 +54,14 @@
       document.body.appendChild(overlay);
     };
     document.addEventListener('pointerdown', event => {
-      if (!media.matches || event.clientX > 72 || event.clientY > 72) return;
-      pointer = event.pointerId; startX = event.clientX; startY = event.clientY; consumed = false; cancel(); timer = window.setTimeout(open, 1200);
-    }, true);
-    document.addEventListener('pointermove', event => { if (event.pointerId === pointer && Math.hypot(event.clientX - startX, event.clientY - startY) > 14) cancel(); }, true);
-    ['pointerup','pointercancel'].forEach(type => document.addEventListener(type, event => { if (event.pointerId !== pointer) return; cancel(); pointer = -1; if (consumed) { event.preventDefault(); event.stopPropagation(); } }, true));
-    document.addEventListener('contextmenu', event => { if (media.matches && event.clientX <= 72 && event.clientY <= 72) event.preventDefault(); }, true);
+      if (!isActivationCorner(event)) return;
+      blockNativeGesture(event);
+      pointer = event.pointerId; startX = event.clientX; startY = event.clientY; cancel(); timer = window.setTimeout(open, 1200);
+    }, listenerOptions);
+    document.addEventListener('pointermove', event => { if (event.pointerId !== pointer) return; blockNativeGesture(event); if (Math.hypot(event.clientX - startX, event.clientY - startY) > 14) cancel(); }, listenerOptions);
+    ['pointerup','pointercancel'].forEach(type => document.addEventListener(type, event => { if (event.pointerId !== pointer) return; blockNativeGesture(event); cancel(); pointer = -1; }, listenerOptions));
+    document.addEventListener('selectstart', event => { if (pointer !== -1) blockNativeGesture(event); }, listenerOptions);
+    document.addEventListener('contextmenu', event => { if (isActivationCorner(event)) blockNativeGesture(event); }, listenerOptions);
   }
 
   const $ = selector => document.querySelector(selector);
