@@ -26,6 +26,40 @@
   const TEXTS = window.FLAG_GAME_I18N;
   delete window.FLAG_GAME_I18N;
 
+  function installTouchKonamiPad(feedKey) {
+    const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    const media = window.matchMedia('(max-width: 900px), (pointer: coarse)');
+    let timer = 0, pointer = -1, startX = 0, startY = 0, consumed = false;
+    const cancel = () => { window.clearTimeout(timer); timer = 0; };
+    const open = () => {
+      if (!media.matches || document.querySelector('.touch-konami-pad')) return;
+      consumed = true;
+      let progress = 0;
+      const overlay = document.createElement('div');
+      overlay.className = 'touch-konami-pad';
+      overlay.innerHTML = `<section class="touch-konami-panel" role="dialog" aria-modal="true" aria-label="Secret code input"><button type="button" class="touch-konami-close" aria-label="Close">×</button><div class="touch-konami-title">SECRET INPUT</div><div class="touch-konami-progress" aria-hidden="true">${code.map(() => '<i></i>').join('')}</div><div class="touch-konami-controls"><div class="touch-konami-dpad"><button type="button" class="touch-konami-key touch-konami-up" data-konami-key="ArrowUp" aria-label="Up">↑</button><button type="button" class="touch-konami-key touch-konami-left" data-konami-key="ArrowLeft" aria-label="Left">←</button><button type="button" class="touch-konami-key touch-konami-down" data-konami-key="ArrowDown" aria-label="Down">↓</button><button type="button" class="touch-konami-key touch-konami-right" data-konami-key="ArrowRight" aria-label="Right">→</button></div><div class="touch-konami-ab"><button type="button" class="touch-konami-key" data-konami-key="b">B</button><button type="button" class="touch-konami-key" data-konami-key="a">A</button></div></div></section>`;
+      const close = () => overlay.remove();
+      overlay.addEventListener('click', event => {
+        if (event.target === overlay || event.target.closest('.touch-konami-close')) { close(); return; }
+        const button = event.target.closest('[data-konami-key]');
+        if (!button) return;
+        const key = button.dataset.konamiKey;
+        feedKey(key);
+        progress = key === code[progress] ? progress + 1 : key === code[0] ? 1 : 0;
+        overlay.querySelectorAll('.touch-konami-progress i').forEach((dot, index) => dot.classList.toggle('on', index < progress));
+        if (progress === code.length) window.setTimeout(close, 420);
+      });
+      document.body.appendChild(overlay);
+    };
+    document.addEventListener('pointerdown', event => {
+      if (!media.matches || event.clientX > 72 || event.clientY > 72) return;
+      pointer = event.pointerId; startX = event.clientX; startY = event.clientY; consumed = false; cancel(); timer = window.setTimeout(open, 1200);
+    }, true);
+    document.addEventListener('pointermove', event => { if (event.pointerId === pointer && Math.hypot(event.clientX - startX, event.clientY - startY) > 14) cancel(); }, true);
+    ['pointerup','pointercancel'].forEach(type => document.addEventListener(type, event => { if (event.pointerId !== pointer) return; cancel(); pointer = -1; if (consumed) { event.preventDefault(); event.stopPropagation(); } }, true));
+    document.addEventListener('contextmenu', event => { if (media.matches && event.clientX <= 72 && event.clientY <= 72) event.preventDefault(); }, true);
+  }
+
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
   const ui = {
@@ -557,6 +591,8 @@
       ui.cgViewer.hidden = true;
     }
   });
+
+  installTouchKonamiPad(trackCheat);
 
   setPhase('home', 'homeMessage');
   applyLanguage();
