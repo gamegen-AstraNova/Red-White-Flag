@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "assets": [
+    {
+      "id": "bgm_bgm_main",
+      "type": "audio",
+      "relativePath": "audio/bgm_bgm_main.mp3",
+      "cssVariable": null
+    },
+    {
+      "id": "sfx_sfx_demo_start",
+      "type": "audio",
+      "relativePath": "audio/sfx_sfx_demo_start.mp3",
+      "cssVariable": null
+    },
+    {
+      "id": "sfx_sfx_player_start",
+      "type": "audio",
+      "relativePath": "audio/sfx_sfx_player_start.mp3",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_stadium",
+      "type": "image",
+      "relativePath": "textures/bg_stadium.png",
+      "cssVariable": "--asset-bg_stadium"
+    },
+    {
+      "id": "bg_cg_level_01",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_01.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_02",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_02.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_03",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_03.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_04",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_04.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_05",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_05.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_06",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_06.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_07",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_07.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_08",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_08.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_09",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_09.png",
+      "cssVariable": null
+    },
+    {
+      "id": "bg_cg_level_10",
+      "type": "image",
+      "relativePath": "textures/bg_cg_level_10.png",
+      "cssVariable": null
+    },
+    {
+      "id": "sym_nyx_arm_red",
+      "type": "image",
+      "relativePath": "textures/sym_nyx_arm_red.png",
+      "cssVariable": null
+    },
+    {
+      "id": "sym_nyx_arm_white",
+      "type": "image",
+      "relativePath": "textures/sym_nyx_arm_white.png",
+      "cssVariable": null
+    },
+    {
+      "id": "sym_nyx_body",
+      "type": "image",
+      "relativePath": "textures/sym_nyx_body.png",
+      "cssVariable": null
+    },
+    {
+      "id": "sym_nyx_head",
+      "type": "image",
+      "relativePath": "textures/sym_nyx_head.png",
+      "cssVariable": null
+    },
+    {
+      "id": "sym_nyx_torso",
+      "type": "image",
+      "relativePath": "textures/sym_nyx_torso.png",
+      "cssVariable": null
+    },
+    {
+      "id": "deco_noto_sans_jp",
+      "type": "font",
+      "relativePath": "fonts/deco_noto_sans_jp.woff2",
+      "cssVariable": "--asset-deco_noto_sans_jp"
+    },
+    {
+      "id": "deco_noto_sans_latin",
+      "type": "font",
+      "relativePath": "fonts/deco_noto_sans_latin.woff2",
+      "cssVariable": "--asset-deco_noto_sans_latin"
+    },
+    {
+      "id": "deco_noto_sans_sc",
+      "type": "font",
+      "relativePath": "fonts/deco_noto_sans_sc.woff2",
+      "cssVariable": "--asset-deco_noto_sans_sc"
+    },
+    {
+      "id": "deco_noto_sans_tc",
+      "type": "font",
+      "relativePath": "fonts/deco_noto_sans_tc.woff2",
+      "cssVariable": "--asset-deco_noto_sans_tc"
+    },
+    {
+      "id": "logo_ui_favicon",
+      "type": "image",
+      "relativePath": "textures/logo_ui_favicon.png",
+      "cssVariable": null
+    },
+    {
+      "id": "panel_ad_asteria",
+      "type": "image",
+      "relativePath": "textures/panel_ad_asteria.png",
+      "cssVariable": null
+    },
+    {
+      "id": "panel_ad_lumi",
+      "type": "image",
+      "relativePath": "textures/panel_ad_lumi.png",
+      "cssVariable": null
+    },
+    {
+      "id": "panel_ad_nyx",
+      "type": "image",
+      "relativePath": "textures/panel_ad_nyx.png",
+      "cssVariable": null
+    }
+  ]
+}

@@ -1,131 +1,13 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7edda">
-  <title>紅白旗挑戰 · AstraNova</title>
-  <link rel="icon" href="./assets/ui/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red White Flag Challenge</title>
+  <script type="module" crossorigin src="./assets/index-D5VT1qwN.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-kXNkGxCo.css">
 </head>
-<body data-phase="home">
-  <main class="game-page">
-    <header class="topbar">
-      <button class="brand" id="homeButton" type="button" aria-label="回到首頁" data-i18n-aria="homeAria">
-        <svg class="brand-flags" viewBox="0 0 64 52" aria-hidden="true">
-          <path class="flag-pole" d="M32 49 18 4M32 49 46 4"></path>
-          <path class="flag-cloth red" d="m18 4-15 7 7 18 14-7Z"></path>
-          <path class="flag-cloth white" d="m46 4 15 7-7 18-14-7Z"></path>
-        </svg>
-        <span><strong data-i18n="brand">紅白旗挑戰</strong><small>AstraNova</small></span>
-      </button>
-      <div class="top-actions">
-        <button class="icon-button" id="soundButton" type="button" aria-label="關閉音效"><span class="button-icon" aria-hidden="true">♪</span><span class="button-label">音效</span></button>
-        <button class="icon-button" id="bgmButton" type="button" aria-label="關閉 BGM"><span class="button-icon" aria-hidden="true">♫</span><span class="button-label">BGM</span></button>
-        <label class="language-picker"><span aria-hidden="true">文</span><select id="languageSelect" aria-label="選擇語言"><option value="zh-TW">繁體中文</option><option value="zh-CN">简体中文</option><option value="en">English</option><option value="ja">日本語</option></select></label>
-        <button class="icon-button" id="galleryButton" type="button" aria-label="開啟 CG 圖鑑" data-i18n-aria="galleryAria"><span class="button-icon" aria-hidden="true">▣</span><span class="button-label">CG <b id="galleryCount">0</b>/10</span></button>
-      </div>
-    </header>
-
-    <section class="game-card">
-      <div class="level-rail" id="levelRail" aria-label="關卡進度"></div>
-
-      <div class="hud">
-        <div><span class="hud-label" data-i18n="levelLabel">關卡</span><strong><span id="levelNumber">01</span><em>/10</em></strong></div>
-        <div class="mission"><span class="status-dot" id="statusDot"></span><span id="message">看清楚、聽節拍、再照做！</span></div>
-        <div class="hud-right"><span class="hud-label" data-i18n="revivesLabel">本輪剩餘續命次數</span><strong><span id="reviveCount">3</span><em>/3</em></strong></div>
-      </div>
-
-      <div class="playfield">
-        <div class="phase-label" id="phaseLabel">RED · WHITE · RHYTHM</div>
-
-        <div class="character-rig" id="character" data-pose="neutral" role="img" aria-label="畫面中央拿著紅白旗的角色" data-i18n-aria="characterAria">
-          <div class="character-breath">
-            <img class="character-arm character-arm-red" src="./assets/character/chibi-arm-red.png" alt="">
-            <img class="character-torso" src="./assets/character/chibi-torso.png" alt="">
-            <img class="character-arm character-arm-white" src="./assets/character/chibi-arm-white.png" alt="">
-            <img class="character-body" src="./assets/character/chibi-body.png" alt="">
-          </div>
-        </div>
-
-        <div class="beat-track" id="beatTrack" aria-label="節奏進度" data-i18n-aria="beatAria" hidden></div>
-        <section class="panel home-panel" data-screen="home">
-          <span class="eyebrow">MEMORY × RHYTHM</span>
-          <h1 data-i18n-html="homeTitle">Nyx的<br><span>紅白旗挑戰！</span></h1>
-          <p data-i18n="homeDescription">跟著角色示範的節奏舉起旗幟。角色做出假動作的節拍則不動。</p>
-          <button class="primary-button" id="startButton" type="button" data-i18n-html="startButton">開始挑戰 <span>→</span></button>
-          <small data-i18n="keyboardHelp">支援鍵盤 R / W 或 ← / →</small>
-        </section>
-
-        <div class="countdown" id="countdown" hidden aria-live="assertive">3</div>
-
-        <section class="panel result-panel" data-screen="success" hidden>
-          <span class="result-stamp">CLEAR!</span>
-          <h2 data-i18n="successTitle">挑戰成功</h2>
-          <div class="mini-cg" id="unlockedCg"><span>CG 解鎖</span><b>初次登場</b></div>
-          <button class="primary-button" id="nextButton" type="button">前往下一關 <span>→</span></button>
-        </section>
-
-        <section class="panel result-panel fail-panel" data-screen="fail" hidden>
-          <span class="result-stamp">MISS!</span>
-          <h2 id="failureReason">節奏偏掉了！</h2>
-          <p data-i18n="failDescription">可觀看模擬廣告續命，或從第一關重新開始。</p>
-          <button class="primary-button" id="watchAdButton" type="button">▶ 看廣告續命 <small>剩 <b>3</b> 次</small></button>
-          <button class="text-button" id="resetRunButton" type="button" data-i18n="resetRun">放棄，返回首頁</button>
-        </section>
-
-        <section class="panel result-panel" data-screen="complete" hidden>
-          <span class="crown" aria-hidden="true">♛</span>
-          <span class="result-stamp">ALL CLEAR!</span>
-          <h2 data-i18n="completeTitle">紅白旗之王誕生！</h2>
-          <p data-i18n="completeDescription">所有回憶已收入圖鑑，隨時可以回來重溫。</p>
-          <button class="primary-button" id="completeGalleryButton" type="button" data-i18n-html="viewGallery">查看完整圖鑑 <span>→</span></button>
-          <button class="text-button" id="completeHomeButton" type="button" data-i18n="backHome">返回首頁</button>
-        </section>
-      </div>
-
-      <div class="controls" id="controls" aria-label="舉旗操作區" data-i18n-aria="controlsAria">
-        <button class="flag-button red-button" id="redButton" type="button" disabled>
-          <span class="button-flag red" aria-hidden="true"></span><span><small>LEFT · R</small><strong data-i18n="raiseRed">舉紅旗</strong></span>
-        </button>
-        <div class="control-hint"><span id="controlHint">準備好了嗎？</span><i></i></div>
-        <button class="flag-button white-button" id="whiteButton" type="button" disabled>
-          <span><small>RIGHT · W</small><strong data-i18n="raiseWhite">舉白旗</strong></span><span class="button-flag white" aria-hidden="true"></span>
-        </button>
-      </div>
-    </section>
-
-    <footer><span><span data-i18n="brand">紅白旗挑戰</span> · AstraNova</span><span data-i18n="footerNote">失敗不會移除已解鎖的 CG</span></footer>
-  </main>
-
-  <div class="modal-backdrop" id="galleryModal" role="dialog" aria-modal="true" aria-label="CG 圖鑑" data-i18n-aria="galleryDialogAria" hidden>
-    <section class="gallery-modal">
-      <div class="modal-head"><div><span class="eyebrow">COLLECTION</span><h2 data-i18n="galleryTitle">回憶 CG 圖鑑</h2></div><button class="close-button" data-close="gallery" type="button" aria-label="關閉圖鑑" data-i18n-aria="closeGallery">×</button></div>
-      <p data-i18n="galleryDescription">每通過一關，就會永久解鎖一張新 CG。</p>
-      <div class="cg-grid" id="cgGrid"></div>
-    </section>
-  </div>
-
-  <div class="modal-backdrop" id="cgViewer" role="dialog" aria-modal="true" hidden>
-    <section class="cg-full">
-      <button class="close-button" data-close="viewer" type="button" aria-label="關閉 CG" data-i18n-aria="closeCg">×</button>
-      <div class="cg-scene"><img id="cgFullImage" src="./assets/cg/cg-01.webp" alt="初次登場"></div>
-      <div><small id="cgFullNumber">CG 01</small><h2 id="cgFullTitle">初次登場</h2></div>
-    </section>
-  </div>
-
-  <div class="modal-backdrop" id="adModal" role="dialog" aria-modal="true" aria-label="模擬廣告" data-i18n-aria="adDialogAria" hidden>
-    <section class="ad-modal">
-      <div class="mock-ad"><span>AD</span><i aria-hidden="true">旗</i><h2 data-i18n="adTitle">節奏能量補給站</h2><p data-i18n="adDescription">這裡是正式廣告串接前的模擬流程</p></div>
-      <div class="ad-wait" id="adWait">廣告將在 <strong>3</strong> 秒後結束</div>
-      <button class="primary-button" id="reviveButton" type="button" data-i18n-html="revive" hidden>獲得續命，重試本關 <span>→</span></button>
-    </section>
-  </div>
-
-  <audio id="bgmAudio" src="./assets/audio/bgm-main.mp3" loop preload="auto"></audio>
-  <audio id="demoStartSfx" src="./assets/audio/sfx-demo-start.mp3" preload="auto"></audio>
-  <audio id="playerStartSfx" src="./assets/audio/sfx-player-start.mp3" preload="auto"></audio>
-  <script src="./i18n.js"></script>
-  <script src="./game.js?v=4"></script>
+<body>
+  <div id="root"></div>
 </body>
 </html>
