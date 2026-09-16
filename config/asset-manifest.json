@@ -22,97 +22,97 @@
     {
       "id": "bg_stadium",
       "type": "image",
-      "relativePath": "textures/bg_stadium.png",
+      "relativePath": "textures/bg_stadium.webp",
       "cssVariable": "--asset-bg_stadium"
     },
     {
       "id": "bg_cg_level_01",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_01.png",
+      "relativePath": "textures/bg_cg_level_01.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_02",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_02.png",
+      "relativePath": "textures/bg_cg_level_02.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_03",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_03.png",
+      "relativePath": "textures/bg_cg_level_03.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_04",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_04.png",
+      "relativePath": "textures/bg_cg_level_04.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_05",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_05.png",
+      "relativePath": "textures/bg_cg_level_05.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_06",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_06.png",
+      "relativePath": "textures/bg_cg_level_06.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_07",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_07.png",
+      "relativePath": "textures/bg_cg_level_07.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_08",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_08.png",
+      "relativePath": "textures/bg_cg_level_08.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_09",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_09.png",
+      "relativePath": "textures/bg_cg_level_09.webp",
       "cssVariable": null
     },
     {
       "id": "bg_cg_level_10",
       "type": "image",
-      "relativePath": "textures/bg_cg_level_10.png",
+      "relativePath": "textures/bg_cg_level_10.webp",
       "cssVariable": null
     },
     {
       "id": "sym_nyx_arm_red",
       "type": "image",
-      "relativePath": "textures/sym_nyx_arm_red.png",
+      "relativePath": "textures/sym_nyx_arm_red.webp",
       "cssVariable": null
     },
     {
       "id": "sym_nyx_arm_white",
       "type": "image",
-      "relativePath": "textures/sym_nyx_arm_white.png",
+      "relativePath": "textures/sym_nyx_arm_white.webp",
       "cssVariable": null
     },
     {
       "id": "sym_nyx_body",
       "type": "image",
-      "relativePath": "textures/sym_nyx_body.png",
+      "relativePath": "textures/sym_nyx_body.webp",
       "cssVariable": null
     },
     {
       "id": "sym_nyx_head",
       "type": "image",
-      "relativePath": "textures/sym_nyx_head.png",
+      "relativePath": "textures/sym_nyx_head.webp",
       "cssVariable": null
     },
     {
       "id": "sym_nyx_torso",
       "type": "image",
-      "relativePath": "textures/sym_nyx_torso.png",
+      "relativePath": "textures/sym_nyx_torso.webp",
       "cssVariable": null
     },
     {
@@ -142,25 +142,25 @@
     {
       "id": "logo_ui_favicon",
       "type": "image",
-      "relativePath": "textures/logo_ui_favicon.png",
+      "relativePath": "textures/logo_ui_favicon.webp",
       "cssVariable": null
     },
     {
       "id": "panel_ad_asteria",
       "type": "image",
-      "relativePath": "textures/panel_ad_asteria.png",
+      "relativePath": "textures/panel_ad_asteria.webp",
       "cssVariable": null
     },
     {
       "id": "panel_ad_lumi",
       "type": "image",
-      "relativePath": "textures/panel_ad_lumi.png",
+      "relativePath": "textures/panel_ad_lumi.webp",
       "cssVariable": null
     },
     {
       "id": "panel_ad_nyx",
       "type": "image",
-      "relativePath": "textures/panel_ad_nyx.png",
+      "relativePath": "textures/panel_ad_nyx.webp",
       "cssVariable": null
     }
   ]

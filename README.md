@@ -31,5 +31,5 @@ Compress-Archive -Path index.html,poster.webp,assets,common,config -DestinationP
 
 2026-09-10：交付 ZIP 的 CRC、入口、檔名唯一性及封面解碼／比例均通過。同步後每個執行檔案均與交付 ZIP 逐一比對 SHA-256，並在 HTTP 子路徑逐檔讀回核對內容一致。初次交付已在 HTTP 子路徑抽查進入遊戲及玩法；這不代表完整回歸測試通過。
 
-- 上述版本沿用已驗證交付包；本次同步未重新編譯或修改遊戲 JS、CSS、語系及媒體。
+- 2026-09-16 已將 20 張正式 PNG 原尺寸轉為保留 alpha 的高品質 WebP，同步更新 manifest、JS 與 CSS 引用；本機 HTTP 子路徑完成 100% 預載且無 console 警告或錯誤，重建 ZIP 由 27.30 MB 降至 7.23 MB。
 - 尚未驗證 GameGen 後台實際上傳結果、全關卡、四語系完整流程及遠端 style/commonPath 故障降級。
